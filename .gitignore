@@ -1,0 +1,48 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+db.sqlite3
+staticfiles/
+.DS_Store
+*.tar.gz
+.venv
+.venv/
+*.db
+
+# Internal design notes (HLD/LLD/LOGIN) stay out of the repo; the public ChatGPT-submission
+# docs under docs/chatgpt/ are a deliverable and are tracked. Written as docs/* rather than
+# docs/ because git cannot re-include a path inside an excluded DIRECTORY.
+docs/*
+!docs/chatgpt/
+!docs/submission/
+.idea/
+Documents/
+AI Responses/
+manual response/
+# Anchored to the repo root on purpose: an unanchored `build-page-schemas/` also matched
+# `.claude/skills/build-page-schemas/`, which left 13 of that skill's 16 reference files
+# untracked while SKILL.md and two references were committed — the skill's rules were
+# half under version control, and a stale duplicate of the whole skill grew at the root.
+/build-page-schemas/
+/emit-schema-to-cms/
+/frontend/
+/schemas/
+# The Page Builder's working history: output/<SITE_KEY>/ holds the plan, census, raw pages,
+# extracts, library.md, trace.json, merge-log.md, the emit plan/report and the frontend build
+# report. Resumable and debuggable, but not a deliverable -- the durable handoff is the three
+# files in /schemas/<SITE_KEY>/.
+/output/
+# Local-only env profile for running this server on localhost (see local.env)
+local.env
+# Direct CDS/CMS Basic Auth credentials for manual testing outside MCP (see local-credentials.env)
+local-credentials.env
+# Anchored for the same reason as the block above: an unanchored `next/` also matched
+# the top-level next/ app itself, silently excluding the whole build-cms-frontend
+# deliverable (every next/sites/<SITE_KEY>/ build) from version control entirely.
+# next/node_modules is already handled by next/.gitignore.
+.claude/skills/build-cms-frontend/scripts/node_modules/
+/build-cms-frontend/
+/csv files/
+test.md
+.claude/skills/verify-visual-fidelity/scripts/node_modules/
